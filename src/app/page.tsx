@@ -1,95 +1,82 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+
+import * as React from 'react';
+import { Container, Typography, Box, Button, Paper } from '@mui/material';
+import { useTheme } from '@mui/material/styles';
+import { useUser } from '@auth0/nextjs-auth0/client';
 
 export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+  const theme = useTheme();
+  const { user } = useUser();
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+  if(user) {
+    return (
+      <Paper sx={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(https://source.unsplash.com/random/1600x900?technology)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: theme.palette.common.white,
+      }}>
+        <Container maxWidth="sm" sx={{ textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', p: 4, borderRadius: theme.shape.borderRadius }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem' }}>
+            Welcome to TaskMaster
+          </Typography>
+          <Typography variant="h5" sx={{ my: 3, fontSize: '1.2rem' }}>
+            A modern task management app built with the power of Node.js, Next.js, TypeScript, MongoDB, and secured with Auth0.
+          </Typography>
+          <Typography sx={{ my: 2 }}>
+            TaskMaster lets you create, manage, and track your tasks efficiently. Get started by adding your tasks and experience productivity like never before!
+          </Typography>
+          <Box mt={4}>
+            <Button variant="contained" color="primary" href="/tasks">
+              Go to Tasks
+            </Button>
+          </Box>
+        </Container>
 
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
+      </Paper>
+    );
+  } else {
+    return (
+      <Paper sx={{
+        position: 'absolute',
+        width: '100%',
+        height: '100%',
+        backgroundImage: 'url(https://source.unsplash.com/random/1600x900?technology)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        color: theme.palette.common.white,
+      }}>
+        <Container maxWidth="sm" sx={{ textAlign: 'center', backgroundColor: 'rgba(0, 0, 0, 0.5)', p: 4, borderRadius: theme.shape.borderRadius }}>
+          <Typography variant="h3" component="h1" gutterBottom sx={{ fontWeight: 'bold', fontSize: '2.5rem' }}>
+            Welcome to TaskMaster
+          </Typography>
+          <Typography variant="h5" sx={{ my: 3, fontSize: '1.2rem' }}>
+            A modern task management app built with the power of Node.js, Next.js, TypeScript, MongoDB, and secured with Auth0.
+          </Typography>
+          <Typography sx={{ my: 2 }}>
+            TaskMaster lets you create, manage, and track your tasks efficiently. Sign in to start adding your tasks and experience productivity like never before!
+          </Typography>
+          <Box mt={4}>
+            <Button variant="contained" color="primary" href="/api/auth/login">
+              Sign In to Get Started
+            </Button>
+          </Box>
 
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
+        </Container>
+      </Paper>
+    );
+  }
 
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  );
 }
