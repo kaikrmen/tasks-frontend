@@ -1,36 +1,35 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tasks Management Web Application
 
-## Getting Started
+## Description
 
-First, run the development server:
+The Tasks Management Web Application is a comprehensive solution for managing tasks with functionalities to create, read, edit, and delete tasks, along with a special feature to toggle a task's completion status (isDone). Built with Next.js, this application offers a seamless user experience with server-side rendering capabilities for fast loading times and dynamic content updates. It leverages Auth0 for robust user authentication, ensuring secure access to tasks. The application's frontend interacts with an Express backend, requiring Auth0 tokens for accessing task-related operations. Material-UI (MUI) is used to craft a responsive and aesthetically pleasing interface, enhancing user interaction and accessibility.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **CRUD Operations**: Create, read, update, and delete tasks.
+- **Task Completion Toggle**: Mark tasks as done or pending with a special toggle feature.
+- **Secure Authentication**: Utilizes Auth0 for secure user authentication and route protection.
+- **Express Backend Integration**: Communicates with an Express backend, passing Auth0 tokens for authenticated requests.
+- **Responsive Design**: Employs Material-UI for a modern, responsive design.
+- **End-to-End Testing**: Incorporates Cypress for comprehensive testing to ensure application reliability.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Installation
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### Prerequisites
 
-## Learn More
+- Node.js (latest stable version recommended)
+- An Auth0 account for authentication setup
+- An Express backend running with endpoints for task management
 
-To learn more about Next.js, take a look at the following resources:
+### Setup
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Clone the Repository**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+   Clone the repo to your local machine using:
 
-## Deploy on Vercel
+   ```bash
+   git clone https://github.com/kaikrmen/tasks-frontend.git
+   cd tasks-frontend-main
+   
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

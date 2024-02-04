@@ -1,0 +1,17 @@
+{
+    "extends": "./../../../tsconfig.json",
+    "compilerOptions": {
+      "target": "es5",
+      "lib": ["es5", "dom"],
+      "types": ["cypress", "node"],
+      "strict": true,
+      "esModuleInterop": true,
+      "module": "commonjs",
+      "moduleResolution": "node",
+      "noEmit": true,
+      "allowJs": true,
+      "skipLibCheck": true
+    },
+    "include": ["**/*.ts"]
+  }
+  

@@ -15,7 +15,6 @@ import {
   
     const user = await getSession(req, response);
     const token = user?.accessToken;
-    console.log('token', token);
     response.headers.set('Authorization', `Bearer ${token}`);
   
     return response;
